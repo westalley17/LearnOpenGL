@@ -5,10 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{AF843D47-1D3E-4FDF-9564-7A9BF1ED2062}|LearnOpenGL.vcxproj|C:\\Users\\wesat\\Desktop\\LearnOpenGL\\src\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{AF843D47-1D3E-4FDF-9564-7A9BF1ED2062}|LearnOpenGL.vcxproj|solutionrelative:src\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{AF843D47-1D3E-4FDF-9564-7A9BF1ED2062}|LearnOpenGL.vcxproj|C:\\Users\\wesat\\Desktop\\LearnOpenGL\\src\\shaders\\fragmentShader.glsl||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{AF843D47-1D3E-4FDF-9564-7A9BF1ED2062}|LearnOpenGL.vcxproj|solutionrelative:src\\shaders\\fragmentShader.glsl||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,21 +14,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "fragmentShader.glsl",
-              "DocumentMoniker": "C:\\Users\\wesat\\Desktop\\LearnOpenGL\\src\\shaders\\fragmentShader.glsl",
-              "RelativeDocumentMoniker": "src\\shaders\\fragmentShader.glsl",
-              "ToolTip": "C:\\Users\\wesat\\Desktop\\LearnOpenGL\\src\\shaders\\fragmentShader.glsl",
-              "RelativeToolTip": "src\\shaders\\fragmentShader.glsl",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAABZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-04-23T15:16:55.228Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -41,7 +24,7 @@
               "RelativeDocumentMoniker": "src\\Application.cpp",
               "ToolTip": "C:\\Users\\wesat\\Desktop\\LearnOpenGL\\src\\Application.cpp",
               "RelativeToolTip": "src\\Application.cpp",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAACcAAABOAAAAAAAAAA==",
+              "ViewState": "AgIAAFIAAAAAAAAAAAAAwFgAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-04-17T00:21:09.242Z",
               "EditorCaption": ""
