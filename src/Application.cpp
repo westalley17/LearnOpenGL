@@ -15,7 +15,7 @@ int main()
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(800, 600, "Shalom", NULL, NULL);
+    window = glfwCreateWindow(1920, 1080, "", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -35,10 +35,10 @@ int main()
     /* First, define our data and bind it to a VBO and then a VAO */
     float vertices[] = {
          // positions          // colors           // texture coords
-         0.5f,  0.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
-         0.5f, -0.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
-        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
-        -0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left 
+         1.5f,  1.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
+         1.5f, -1.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
+        -1.5f, -1.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
+        -1.5f,  1.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left 
     };
     unsigned int indices[] = {
         0, 1, 3,
@@ -62,7 +62,7 @@ int main()
     Shader ourShader("src/shaders/vertexShader.glsl", "src/shaders/fragmentShader.glsl");
 
     /* Third(?), generate and apply our texture */
-    stbi_set_flip_vertically_on_load(true);
+    //stbi_set_flip_vertically_on_load(true);
     unsigned int texture1, texture2;
     glGenTextures(1, &texture1);
     glBindTexture(GL_TEXTURE_2D, texture1);
@@ -119,7 +119,7 @@ int main()
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
     glEnableVertexAttribArray(2);
     
-    float filter = 0.2;
+    float filter = 0.0;
 
 
     /* Loop until the user closes the window */
@@ -163,12 +163,12 @@ void processInput(GLFWwindow* window, float& filter) {
         glfwSetWindowShouldClose(window, true);
     }
     if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
-        if (filter <= 0.95) {
+        if (filter <= 0.999) {
             filter += 0.001f;
         }
     }
     if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
-        if (filter >= 0.05) {
+        if (filter >= 0.001) {
             filter -= 0.001f;
         }
     }
