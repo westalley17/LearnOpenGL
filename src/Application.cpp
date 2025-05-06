@@ -15,7 +15,7 @@ int main()
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(1920, 1080, "", NULL, NULL);
+    window = glfwCreateWindow(1080, 1080, "", NULL, NULL);
     if (!window)
     {
         glfwTerminate();
@@ -34,11 +34,11 @@ int main()
     /* NOW... finally start working with graphics... */
     /* First, define our data and bind it to a VBO and then a VAO */
     float vertices[] = {
-         // positions          // colors           // texture coords
-         1.5f,  1.5f, 0.0f,   1.0f, 0.0f, 0.0f,   1.0f, 1.0f,   // top right
-         1.5f, -1.5f, 0.0f,   0.0f, 1.0f, 0.0f,   1.0f, 0.0f,   // bottom right
-        -1.5f, -1.5f, 0.0f,   0.0f, 0.0f, 1.0f,   0.0f, 0.0f,   // bottom left
-        -1.5f,  1.5f, 0.0f,   1.0f, 1.0f, 0.0f,   0.0f, 1.0f    // top left 
+         // positions          // texture coords
+         0.5f,  0.5f, 0.0f,   1.0f, 1.0f,   // top right
+         0.5f, -0.5f, 0.0f,   1.0f, 0.0f,   // bottom right
+        -0.5f, -0.5f, 0.0f,   0.0f, 0.0f,   // bottom left
+        -0.5f,  0.5f, 0.0f,   0.0f, 1.0f    // top left 
     };
     unsigned int indices[] = {
         0, 1, 3,
@@ -73,7 +73,7 @@ int main()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     // load and generate the textures
     int width, height, nrChannels;
-    unsigned char* data = stbi_load("C:/Users/wesat/Desktop/LearnOpenGL/Dependencies/img/travis_brummett.png", &width, &height, &nrChannels, 4);
+    unsigned char* data = stbi_load("C:/Code/C++/LearnOpenGL/Dependencies/img/travis_brummett.png", &width, &height, &nrChannels, 4);
     if (data)
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
@@ -91,7 +91,7 @@ int main()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    data = stbi_load("C:/Users/wesat/Desktop/LearnOpenGL/Dependencies/img/awesomeface.png", &width, &height, &nrChannels, 4);
+    data = stbi_load("C:/Code/C++/LearnOpenGL/Dependencies/img/awesomeface.png", &width, &height, &nrChannels, 4);
     if (data)
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
@@ -110,14 +110,14 @@ int main()
 
     /* Fourth, AND MOST IMPORTANT!!... Assigning the vertex attributes */
     // position attribute
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
-    // color attribute
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+    //// color attribute
+    //glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+    //glEnableVertexAttribArray(1);
+    //// texture attribute
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
-    // texture attribute
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-    glEnableVertexAttribArray(2);
     
     float filter = 0.0;
 
@@ -131,6 +131,13 @@ int main()
         glClear(GL_COLOR_BUFFER_BIT);
         /* Render here */
         ourShader.use();
+        // temporary transformation maths :)
+        glm::mat4 trans = glm::mat4(1.0f);
+        trans = glm::rotate(trans, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+
+        // use our custom shader functions for easy reusability
+        ourShader.setMat4("transform", trans);
+
         ourShader.setInt("texture1", 0);
         ourShader.setInt("texture2", 1);
         ourShader.setFloat("filterTextures", filter);
@@ -164,12 +171,12 @@ void processInput(GLFWwindow* window, float& filter) {
     }
     if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
         if (filter <= 0.999) {
-            filter += 0.001f;
+            filter += 0.0005f;
         }
     }
     if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
         if (filter >= 0.001) {
-            filter -= 0.001f;
+            filter -= 0.0005f;
         }
     }
 }

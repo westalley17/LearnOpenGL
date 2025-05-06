@@ -1,10 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\wesat\\Desktop\\LearnOpenGL\\",
+  "WorkspaceRootPath": "C:\\Code\\C\u002B\u002B\\LearnOpenGL\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{AF843D47-1D3E-4FDF-9564-7A9BF1ED2062}|LearnOpenGL.vcxproj|C:\\Users\\wesat\\Desktop\\LearnOpenGL\\src\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{AF843D47-1D3E-4FDF-9564-7A9BF1ED2062}|LearnOpenGL.vcxproj|C:\\Code\\C\u002B\u002B\\LearnOpenGL\\src\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{AF843D47-1D3E-4FDF-9564-7A9BF1ED2062}|LearnOpenGL.vcxproj|solutionrelative:src\\Application.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF843D47-1D3E-4FDF-9564-7A9BF1ED2062}|LearnOpenGL.vcxproj|C:\\Code\\C\u002B\u002B\\LearnOpenGL\\src\\shaders\\vertexShader.glsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{AF843D47-1D3E-4FDF-9564-7A9BF1ED2062}|LearnOpenGL.vcxproj|solutionrelative:src\\shaders\\vertexShader.glsl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF843D47-1D3E-4FDF-9564-7A9BF1ED2062}|LearnOpenGL.vcxproj|C:\\Code\\C\u002B\u002B\\LearnOpenGL\\src\\shaders\\fragmentShader.glsl||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{AF843D47-1D3E-4FDF-9564-7A9BF1ED2062}|LearnOpenGL.vcxproj|solutionrelative:src\\shaders\\fragmentShader.glsl||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AF843D47-1D3E-4FDF-9564-7A9BF1ED2062}|LearnOpenGL.vcxproj|C:\\Code\\C\u002B\u002B\\LearnOpenGL\\src\\shaders\\Shader.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AF843D47-1D3E-4FDF-9564-7A9BF1ED2062}|LearnOpenGL.vcxproj|solutionrelative:src\\shaders\\Shader.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +26,58 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Shader.hpp",
+              "DocumentMoniker": "C:\\Code\\C\u002B\u002B\\LearnOpenGL\\src\\shaders\\Shader.hpp",
+              "RelativeDocumentMoniker": "src\\shaders\\Shader.hpp",
+              "ToolTip": "C:\\Code\\C\u002B\u002B\\LearnOpenGL\\src\\shaders\\Shader.hpp",
+              "RelativeToolTip": "src\\shaders\\Shader.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHgAAABjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-06T02:30:23.259Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "fragmentShader.glsl",
+              "DocumentMoniker": "C:\\Code\\C\u002B\u002B\\LearnOpenGL\\src\\shaders\\fragmentShader.glsl",
+              "RelativeDocumentMoniker": "src\\shaders\\fragmentShader.glsl",
+              "ToolTip": "C:\\Code\\C\u002B\u002B\\LearnOpenGL\\src\\shaders\\fragmentShader.glsl",
+              "RelativeToolTip": "src\\shaders\\fragmentShader.glsl",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-06T02:19:33.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "vertexShader.glsl",
+              "DocumentMoniker": "C:\\Code\\C\u002B\u002B\\LearnOpenGL\\src\\shaders\\vertexShader.glsl",
+              "RelativeDocumentMoniker": "src\\shaders\\vertexShader.glsl",
+              "ToolTip": "C:\\Code\\C\u002B\u002B\\LearnOpenGL\\src\\shaders\\vertexShader.glsl",
+              "RelativeToolTip": "src\\shaders\\vertexShader.glsl",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-05-06T02:08:10.466Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Application.cpp",
-              "DocumentMoniker": "C:\\Users\\wesat\\Desktop\\LearnOpenGL\\src\\Application.cpp",
+              "DocumentMoniker": "C:\\Code\\C\u002B\u002B\\LearnOpenGL\\src\\Application.cpp",
               "RelativeDocumentMoniker": "src\\Application.cpp",
-              "ToolTip": "C:\\Users\\wesat\\Desktop\\LearnOpenGL\\src\\Application.cpp",
+              "ToolTip": "C:\\Code\\C\u002B\u002B\\LearnOpenGL\\src\\Application.cpp",
               "RelativeToolTip": "src\\Application.cpp",
-              "ViewState": "AgIAABkAAAAAAAAAAAAAwCgAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAUwIsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-04-17T00:21:09.242Z",
+              "WhenOpened": "2025-04-30T01:52:56.161Z",
               "EditorCaption": ""
             }
           ]
