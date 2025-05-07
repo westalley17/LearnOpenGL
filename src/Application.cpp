@@ -1,7 +1,7 @@
 #include "shaders/Shader.hpp"
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-void processInput(GLFWwindow* window, float& filter);
+void processInput(GLFWwindow* window, float& filter, float& horizontal, float& vertical);
 
 int main()
 {
@@ -73,7 +73,7 @@ int main()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     // load and generate the textures
     int width, height, nrChannels;
-    unsigned char* data = stbi_load("C:/Code/C++/LearnOpenGL/Dependencies/img/travis_brummett.png", &width, &height, &nrChannels, 4);
+    unsigned char* data = stbi_load("C:/Users/wesat/Desktop/LearnOpenGL/Dependencies/img/travis_brummett.png", &width, &height, &nrChannels, 4);
     if (data)
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
@@ -91,7 +91,7 @@ int main()
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    data = stbi_load("C:/Code/C++/LearnOpenGL/Dependencies/img/awesomeface.png", &width, &height, &nrChannels, 4);
+    data = stbi_load("C:/Users/wesat/Desktop/LearnOpenGL/Dependencies/img/awesomeface.png", &width, &height, &nrChannels, 4);
     if (data)
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
@@ -119,13 +119,13 @@ int main()
     glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
     
-    float filter = 0.0;
+    float filter = 0.0f, horizontal = 0.0f, vertical = 0.0f;
 
 
     /* Loop until the user closes the window */
     while (!glfwWindowShouldClose(window))
     {
-        processInput(window, filter);
+        processInput(window, filter, horizontal, vertical);
         /* Make it look nice */
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
@@ -133,7 +133,7 @@ int main()
         ourShader.use();
         // temporary transformation maths :)
         glm::mat4 trans = glm::mat4(1.0f);
-        trans = glm::rotate(trans, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+        trans = glm::translate(trans, glm::vec3(horizontal, vertical, 0.0f));
 
         // use our custom shader functions for easy reusability
         ourShader.setMat4("transform", trans);
@@ -165,18 +165,29 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }
 
-void processInput(GLFWwindow* window, float& filter) {
+void processInput(GLFWwindow* window, float& filter, float& horizontal, float& vertical) {
     if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, true);
     }
-    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
-        if (filter <= 0.999) {
-            filter += 0.0005f;
-        }
+    // Burchfieldddd
+    if (glfwGetKey(window, GLFW_KEY_ENTER) == GLFW_PRESS) {
+        filter = 1.0f;
     }
-    if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
-        if (filter >= 0.001) {
-            filter -= 0.0005f;
-        }
+    // Brummetttttt
+    else if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
+        filter = 0.0f;
+    }
+    // movement, this is so fucking cool
+    if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+        vertical += 0.0005f;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+        vertical -= 0.0005f;
+    }
+    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS) {
+        horizontal += 0.0005f;
+    }
+    else if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS) {
+        horizontal -= 0.0005f;
     }
 }
